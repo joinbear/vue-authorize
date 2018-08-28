@@ -17,7 +17,7 @@ export const verify = async ({ verifyAppName = '', code = '', roleName = '' }) =
         } = resp;
         return {
             headers,
-            data,
+            data: data.data,
         }
     }catch(error) {
         throw error;
