@@ -47,7 +47,13 @@ export const actions = {
                 roleName
             };
             const { headers, data } = await verify(params);
-            commit(CACHE_USER,data[user]);
+            if(data.code === -1) {
+                commit(TOAST_MESSAGE, data.message);
+                return returnVal;
+            }
+            if(data[user]) {
+                commit(CACHE_USER, data[user]['user']);
+            }
             if(headers[authorize]){
                 commit(CACHE_TOKEN,headers[authorize]);
                 return {
