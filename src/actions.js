@@ -52,7 +52,7 @@ export const actions = {
                 return returnVal;
             }
             if(data[user]) {
-                commit(CACHE_USER, data[user]['user']);
+                commit(CACHE_USER, data[user]);
             }
             if(headers[authorize]){
                 commit(CACHE_TOKEN,headers[authorize]);
