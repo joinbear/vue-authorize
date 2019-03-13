@@ -47,6 +47,7 @@ export const actions = {
                 roleName
             };
             const { headers, data } = await verify(params);
+            if(!data) return false;
             if(data.code === -1) {
                 commit(TOAST_MESSAGE, data.message);
                 return returnVal;
